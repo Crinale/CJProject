@@ -22,7 +22,6 @@ fileStuff();
 			while (!file.eof()){
 
 				getline(file,value,',');
-				value = value.length/3;
 				cout << value;
 
 			}
