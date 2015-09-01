@@ -3,6 +3,13 @@
 #include <fstream>
 #include <sstream>
 #include <queue>
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
+
+#include <stdlib.h>
 
 
 using namespace std;
@@ -10,9 +17,28 @@ using namespace std;
 
 int fileStuff();
 int queueThingy(int x1,int y1,int z1);
-int main(){
 
-fileStuff();
+
+static void display(void)
+{
+
+}
+
+
+
+
+int main(int argc,char **argv){
+    fileStuff();
+
+    glutInit(&argc, argv);
+    glutInitWindowSize(640,480);
+    glutInitWindowPosition(10,10);
+    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
+    glutCreateWindow("IT WORKS!");
+    glutDisplayFunc(display);
+    glutMainLoop();
+
+    return EXIT_SUCCESS;
 
 }
 
@@ -40,8 +66,6 @@ fileStuff();
    			}
 
 
-
-    return 0;
   }
 
 
